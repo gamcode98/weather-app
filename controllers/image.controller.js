@@ -4,15 +4,17 @@ const { create, findOne, getAll } = require("../repository/image.repository");
 
 const createImage = async (req, res) => {
   try {
-    const { created_at } = req.body;
+    const { code, description, created_at } = req.body;
 
     // helperImg(req.file.path, `micro-resize-${req.file.filename}`, 20);
     // helperImg(req.file.path, `small-resize-${req.file.filename}`, 100);
     // helperImg(req.file.path, `medium-resize-${req.file.filename}`, 500);
-    // helperImg(req.file.path, `large-resize-${req.file.filename}`, 1000);
+    // helperImg(req.file.path, `large-resize-${req.file.filename}`, 1000)
 
     const data = {
       filename: req.file.filename,
+      code,
+      description,
       path: url + "/uploads/" + req.file.filename,
       originalname: req.file.originalname,
       mimetype: req.file.mimetype,
