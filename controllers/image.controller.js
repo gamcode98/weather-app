@@ -1,6 +1,10 @@
 const { url } = require("../config");
 const { helperImg } = require("../helper/sharpImg");
-const { create, findOne, getAll } = require("../repository/image.repository");
+const {
+  create,
+  getAll,
+  findByCode,
+} = require("../repository/image.repository");
 
 const createImage = async (req, res) => {
   try {
@@ -38,9 +42,9 @@ const createImage = async (req, res) => {
 
 const findOneImage = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { code } = req.params;
 
-    const image = await findOne(id);
+    const image = await findByCode(code);
 
     return res.status(200).json(image);
   } catch (error) {

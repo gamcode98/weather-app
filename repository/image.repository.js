@@ -5,8 +5,8 @@ const create = async (data) => {
   return image;
 };
 
-const findOne = async (id) => {
-  const image = await ImageModel.findById(id);
+const findByCode = async (code) => {
+  const image = await ImageModel.findOne({ code });
   return image;
 };
 
@@ -17,6 +17,6 @@ const getAll = async () => {
 
 module.exports = {
   create,
-  findOne,
+  findByCode,
   getAll,
 };
