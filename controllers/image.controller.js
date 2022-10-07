@@ -12,14 +12,17 @@ const createImage = async (req, res) => {
     // helperImg(req.file.path, `large-resize-${req.file.filename}`, 1000)
 
     const data = {
-      filename: req.file.filename,
       code,
       description,
-      path: url + "/uploads/" + req.file.filename,
-      originalname: req.file.originalname,
-      mimetype: req.file.mimetype,
-      size: req.file.size,
       created_at,
+      day: {
+        originalname: req.files[0].originalname,
+        path: url + "/uploads/" + req.files[0].filename,
+      },
+      night: {
+        originalname: req.files[1].originalname,
+        path: url + "/uploads/" + req.files[1].filename,
+      },
     };
 
     const newImage = await create(data);
