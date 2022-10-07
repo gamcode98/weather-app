@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const imageSchema = new Schema(
   {
     code: { type: Number },
-    description: { type: String },
+    description: [{ type: String }],
     day: {
       originalname: { type: String },
       path: { type: String },

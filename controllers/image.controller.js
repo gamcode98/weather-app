@@ -4,7 +4,8 @@ const { create, findOne, getAll } = require("../repository/image.repository");
 
 const createImage = async (req, res) => {
   try {
-    const { code, description, created_at } = req.body;
+    const { code, englishDescription, spanishDescription, created_at } =
+      req.body;
 
     // helperImg(req.file.path, `micro-resize-${req.file.filename}`, 20);
     // helperImg(req.file.path, `small-resize-${req.file.filename}`, 100);
@@ -13,7 +14,7 @@ const createImage = async (req, res) => {
 
     const data = {
       code,
-      description,
+      description: [englishDescription, spanishDescription],
       created_at,
       day: {
         originalname: req.files[0].originalname,
