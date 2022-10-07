@@ -1,3 +1,4 @@
+const { url } = require("../config");
 const { helperImg } = require("../helper/sharpImg");
 const { create, findOne, getAll } = require("../repository/image.repository");
 
@@ -12,7 +13,7 @@ const createImage = async (req, res) => {
 
     const data = {
       filename: req.file.filename,
-      path: "./uploads/" + req.file.filename,
+      path: url + "/uploads/" + req.file.filename,
       originalname: req.file.originalname,
       mimetype: req.file.mimetype,
       size: req.file.size,

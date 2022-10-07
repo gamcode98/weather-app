@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const { port } = require("./config");
+const { port, url } = require("./config");
 const { connection } = require("./config/db");
 // const multer = require("multer");
 const indexRouter = require("./routes/index");
@@ -8,6 +8,8 @@ const indexRouter = require("./routes/index");
 connection();
 
 const app = express();
+
+app.use("/uploads", express.static("uploads"));
 
 app.use(express.json());
 
@@ -38,5 +40,5 @@ app.use(cors());
 app.use("/", indexRouter);
 
 app.listen(port, () => {
-  console.log("Listening: http://localhost:" + port);
+  console.log(`Listening:  + ${url} + ${port}`);
 });
