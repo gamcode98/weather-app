@@ -40,5 +40,5 @@ app.use(cors());
 app.use("/", indexRouter);
 
 app.listen(port, () => {
-  console.log(`Listening:  + ${url} + ${port}`);
+  console.log(`Listening: ${url}:${port}`);
 });
