@@ -4,10 +4,13 @@ const { port, url } = require("./config");
 const { connection } = require("./config/db");
 const indexRouter = require("./routes/index");
 const { checkAdmin } = require("./helper/checkAdmin");
+const { checkImages } = require("./helper/checkImages");
 
 connection();
 
 checkAdmin();
+
+checkImages();
 
 const app = express();
 
