@@ -1,6 +1,6 @@
-const { mongoose } = require("../config/db");
+const { mongoose } = require('../config/db')
 
-const Schema = mongoose.Schema;
+const Schema = mongoose.Schema
 
 const imageSchema = new Schema(
   {
@@ -8,19 +8,19 @@ const imageSchema = new Schema(
     description: [{ type: String }],
     day: {
       originalname: { type: String },
-      path: { type: String },
+      path: { type: String }
     },
     night: {
       originalname: { type: String },
-      path: { type: String },
+      path: { type: String }
     },
-    created_at: { type: Date, default: Date.now() },
+    created_at: { type: Date, default: Date.now() }
   },
   {
-    versionKey: false,
+    versionKey: false
   }
-);
+)
 
-const ImageModel = mongoose.model("Image", imageSchema);
+const ImageModel = mongoose.model('Image', imageSchema)
 
-module.exports = ImageModel;
+module.exports = ImageModel
